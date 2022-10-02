@@ -1,0 +1,38 @@
+{
+  "name": "edge-lambda-url-authorizer",
+  "version": "0.0.1",
+  "description": "npm pkg to sigv4 sign cloudfront viewer requests to lambda function urls with IAM auth",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nexus-uw/edge-lambda-url-authorizer.git"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "author": "nexus-uw",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/nexus-uw/edge-lambda-url-authorizer/issues"
+  },
+  "homepage": "https://github.com/nexus-uw/edge-lambda-url-authorizer#readme",
+  "dependencies": {
+    "aws4": "^1.11.0"
+  },
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
+    "@types/aws-lambda": "^8.10.106",
+    "@types/aws4": "^1.11.2",
+    "typescript": "^4.8"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
