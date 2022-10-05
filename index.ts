@@ -24,6 +24,7 @@ export const handler = (
             headers[key] = request.headers[key][0].value
             return headers
         }, {} as { [l: string]: string }),
+        body: request.body?.data
     })
 
     const { headers } = signer.sign()
