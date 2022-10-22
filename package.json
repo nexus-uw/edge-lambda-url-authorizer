@@ -1,6 +1,6 @@
 {
   "name": "edge-lambda-url-authorizer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "npm pkg to sigv4 sign cloudfront viewer requests to lambda function urls with IAM auth",
   "main": "index.js",
   "types": "index.d.ts",
