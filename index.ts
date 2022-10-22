@@ -8,7 +8,7 @@ export const handler = (
 ) => {
     const request = event.Records[0].cf.request
     delete request.headers['x-forwarded-for'] // fails signature verification if included
-
+    delete request.headers['content-length'] // causing failures on post/put ...
     // assumes <jib>.lambda-url.<region>.on.aws
     const region = request.origin!.custom?.domainName.split('.')[2]
 
