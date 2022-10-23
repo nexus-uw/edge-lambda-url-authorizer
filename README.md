@@ -11,6 +11,7 @@ npm pkg to sigv4 sign cloudfront viewer requests to [Lambda Function URLs with I
 - apply an iam resource policy (handy for cross account access)
 - better security than just a hardcoded secret http header shared
 - appsec compliance scanners may not 'like' exposed endpoints without authentication enabled. using a cloudfront distribution can help address this 'vulnerability'
+- all the above for under 2ms of extra time (P90)
 
 # how to use 
 
