@@ -3,11 +3,11 @@ npm pkg to sigv4 sign cloudfront viewer requests to [Lambda Function URLs with I
 
 # why?
 - can limit the Lambda Function URL to only be invoked though the configured cloudfront distribution. enabling one to add the following to their function
- - custom domain 
- - caching policy
- - AWS Shield + WAF protection
- - edge routing, 
- - etc
+  - custom domain 
+  - caching policy
+  - AWS Shield + WAF protection
+  - edge routing, 
+  - etc
 - apply an iam resource policy (handy for cross account access)
 - better security than just a hardcoded secret http header shared
 - appsec compliance scanners may not 'like' exposed endpoints without authentication enabled. using a cloudfront distribution can help address this 'vulnerability'
