@@ -1,7 +1,16 @@
 # edge-lambda-url-authorizer
-npm pkg to sigv4 sign cloudfront viewer requests to lambda function urls with IAM auth
+npm pkg to sigv4 sign cloudfront viewer requests to [Lambda Function URLs with IAM auth](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html)
 
-this lets us limit the lambda function url to only be invoked though the configured cloudfront distribution (ie:  custom domain, caching policy, WAF, edge routing, etc)
+# why?
+- can limit the Lambda Function URL to only be invoked though the configured cloudfront distribution. enabling one to add the following to their function
+ - custom domain 
+ - caching policy
+ - AWS Shield + WAF protection
+ - edge routing, 
+ - etc
+- apply an iam resource policy (handy for cross account access)
+- better security than just a hardcoded secret http header shared
+- appsec compliance scanners may not 'like' exposed endpoints without authentication enabled. using a cloudfront distribution can help address this 'vulnerability'
 
 # how to use 
 
@@ -19,7 +28,7 @@ grant the lambda iam role the action *'lambda:InvokeFunctionUrl'*(resource can b
 (you may need to also update the trusted principals to include edgelambda.amazonaws.com alongside lambda.amazonaws.com AND also update the resources pattern to include all regions for the log group permissions)
 
 
-# cdk example
-see [ammobin-cdk](https://github.com/ammobinDOTca/ammobin-cdk)
-
-TODO: actually explain whats going on
+# exmaples/users
+## CDK (ammobin.ca)
+- (edge lambda code) https://github.com/ammobinDOTca/ammobin-cdk/tree/master/lambdas/edge-signer
+- (lambda resource definition + integration) https://github.com/ammobinDOTca/ammobin-cdk/blob/master/lib/ammobin-global-cdk-stack.ts#L48-L84 + https://github.com/ammobinDOTca/ammobin-cdk/blob/master/lib/ammobin-global-cdk-stack.ts#L209-L211
