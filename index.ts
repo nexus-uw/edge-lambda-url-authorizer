@@ -25,7 +25,7 @@ export const handler = (
             headers[key] = request.headers[key][0].value
             return headers
         }, {} as { [l: string]: string }),
-        body:request.body ?
+        body:['POST','PUT'].includes(request.method) && request.body?.data ?
          Buffer.from(request.body?.data, request.body?.encoding === 'base64'?'base64':'ascii') // should always be base64 https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/edge-functions-restrictions.html
          : ""
     })
